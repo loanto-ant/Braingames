@@ -1,13 +1,16 @@
-* {
-   margin: 0;
-   padding: 0;
+:root {
+   --farbe1: #bee9e8;
+   --farbe2: #62b6cb;
+   --farbe3: #1b4965;
+   --farbe4: #cae9ff;
+   --farbe5: #5fa8d3;
 }
 body {
    font-family: "Eras Demi ITC", sans-serif;
 }
 
 header {
-   background-color: #1b4965;
+   background-color: var(--farbe3);
    display: flex;
    align-items: center;
    height: 150px;
