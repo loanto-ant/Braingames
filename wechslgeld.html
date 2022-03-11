@@ -27,6 +27,7 @@
          <span id="0,1e_span"></span>
          <div id="kontrolle">
             <button id="ok">OK</button>
+            <button id="reload">Nochmal</button>
             <span id="richtig_falsch"></span>
          </div>
       </div>
@@ -136,17 +137,23 @@
             zwanzigC_c * 0.2 +
             zehnC_c * 0.1;
 
-         wechselgeld = wechselgeld.toFixed(2);
+         //wechselgeld = wechselgeld.toFixed(2);
          console.log("Gegeben: " + kunde);
          console.log("Preis: " + preis_n);
          console.log("Wechselgeld: " + wechselgeld);
-         console.log("Anzahl an 10 Cent Münzen: " + zehnC_c);
+         console.log("Preis + Wechselgeld = " + (preis_n + wechselgeld));
 
          if (preis_n + wechselgeld === kunde) {
             document.getElementById("richtig_falsch").innerHTML =
                "<img src='images/icons8-check-circle.gif'>";
             console.log("RICHTIG");
+         } else if (preis_n + wechselgeld !== kunde) {
+            console.log("FALSCH");
          }
+      };
+
+      document.getElementById("reload").onclick = function () {
+         window.location.reload(false);
       };
    </script>
 </html>

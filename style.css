@@ -34,11 +34,16 @@ body {
    font-size: 25px;
    font-weight: bold;
 }
-#ok {
+#ok,
+#reload {
    width: 50px;
    height: 30px;
    position: relative;
    top: 40px;
+   margin: 3px;
+}
+#reload {
+   width: fit-content;
 }
 #wallet {
    display: flex;
