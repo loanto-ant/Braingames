@@ -56,7 +56,7 @@
          var kunde = 2;
          bezahlt.setAttribute("src", "images/2e.png");
          bezahlt.setAttribute("style", "border-radius:50%");
-      } else if (preis <= 5) {
+      } else if (preis < 5) {
          var kunde = 5;
          bezahlt.setAttribute("src", "images/5e.png");
       } else {
@@ -129,7 +129,7 @@
       };
 
       //Überprüfen, ob das richtige Wechselgeld gegeben wurde
-      document.getElementById("ok").onclick = function () {
+      document.getElementById("ok").onclick = function check() {
          var wechselgeld =
             zweiE_c * 2 +
             einE_c +
