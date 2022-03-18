@@ -13,32 +13,46 @@
    </head>
    <body>
       <h1>Wechseld ausgeben</h1>
-      <p id="preis">€ 2,00</p>
-      <div id="kunde">
-         <h2>Bezahlt:</h2>
-         <img src="images/5e.png" id="bezahlt" />
-      </div>
-      <div id="wechselgeld">
-         <h2>Wechselgeld:</h2>
-         <span id="2e_span"></span>
-         <span id="1e_span"></span>
-         <span id="0,5e_span"></span>
-         <span id="0,2e_span"></span>
-         <span id="0,1e_span"></span>
-         <div id="kontrolle">
-            <button id="ok">OK</button>
-            <button id="reload">Nochmal</button>
-            <span id="richtig_falsch"></span>
+
+      <div id="main">
+         <div id="links">
+            <p id="preis">€ 2,00</p>
+            <div id="wechselgeld">
+               <h2>Wechselgeld:</h2>
+               <span id="2e_span"></span>
+               <span id="1e_span"></span>
+               <span id="0,5e_span"></span>
+               <span id="0,2e_span"></span>
+               <span id="0,1e_span"></span>
+               <div id="kontrolle">
+                  <button id="ok">OK</button>
+                  <button id="reload">Nochmal</button>
+                  <span id="richtig_falsch"></span>
+               </div>
+            </div>
          </div>
-      </div>
-      <div id="wallet">
-         <h2>Geldtasche:</h2>
-         <div id="muenzen">
-            <img src="images/2e.png" id="2e" />
-            <img src="images/1e.png" id="1e" />
-            <img src="images/0,5e.png" id="0,5e" />
-            <img src="images/0,2e.png" id="0,2e" />
-            <img src="images/0,1e.png" id="0,1e" />
+
+         <div id="mitte">
+            <div id="kunde">
+               <h2>Bezahlt:</h2>
+               <img src="images/5e.png" id="bezahlt" />
+            </div>
+            <div id="wallet">
+               <h2>Geldtasche:</h2>
+               <div id="muenzen">
+                  <img src="images/2e.png" id="2e" />
+                  <img src="images/1e.png" id="1e" />
+                  <img src="images/0,5e.png" id="0,5e" />
+                  <img src="images/0,2e.png" id="0,2e" />
+                  <img src="images/0,1e.png" id="0,1e" />
+               </div>
+            </div>
+         </div>
+
+         <div id="rechts">
+            <div id="spiele">
+               <h2>Meine gespeicherten Spiele</h2>
+            </div>
          </div>
       </div>
    </body>
@@ -145,7 +159,7 @@
 
          if (preis_n + wechselgeld === kunde) {
             document.getElementById("richtig_falsch").innerHTML =
-               "<img src='images/icons8-check-circle.gif'>";
+               "<img src='images/icons8-check-circle-2.gif'>";
             console.log("RICHTIG");
          } else if (preis_n + wechselgeld !== kunde) {
             console.log("FALSCH");
