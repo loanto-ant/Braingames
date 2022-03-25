@@ -9,6 +9,7 @@
          href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap"
          rel="stylesheet"
       />
+      <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
       <title>Wechselgeld</title>
    </head>
    <body>
@@ -51,7 +52,13 @@
 
          <div id="rechts">
             <div id="spiele">
-               <h2>Meine gespeicherten Spiele</h2>
+               <h2>Statistik</h2>
+               <button id="stat_start">Statistik starten</button>
+               <button id="stat_del">Statistik zurücksetzen</button>
+               <p id="richtig">Richtig: 5 [50%]</p>
+               <p id="falsch">Falsch: 5 [50%]</p>
+               <p id="gesamt">Gesamt: 10</p>
+               <span id="bar"></span>
             </div>
          </div>
       </div>
@@ -161,13 +168,31 @@
             document.getElementById("richtig_falsch").innerHTML =
                "<img src='images/icons8-check-circle-2.gif'>";
             console.log("RICHTIG");
+            richtig();
          } else if (preis_n + wechselgeld !== kunde) {
             console.log("FALSCH");
+            falsch();
          }
       };
 
-      document.getElementById("reload").onclick = function () {
+      document.getElementById("reload").onclick = function cookie() {
+         document.cookie = "username=John Smith; SameSite=None; Secure";
          window.location.reload(false);
       };
+
+      function cookieshow() {
+         console.log(document.cookie);
+      }
+
+      var richtig_c = 0;
+
+      function richtig() {
+         console.log("richtig-function");
+         richtig_c = richtig_c + 1;
+         console.log(richtig_c);
+      }
+      function falsch(falsch_c) {
+         console.log("richtig-function");
+      }
    </script>
 </html>
