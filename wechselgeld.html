@@ -68,8 +68,6 @@
       var preis = (Math.floor(Math.random() * 100) + 1) / 10;
       var preis_n = preis;
       preis = preis.toFixed(2);
-      console.log("preis: " + preis);
-      console.log("preis_n: " + preis_n);
       document.getElementById("preis").innerHTML = "€ " + preis;
 
       var bezahlt = document.getElementById("bezahlt");
@@ -168,31 +166,36 @@
             document.getElementById("richtig_falsch").innerHTML =
                "<img src='images/icons8-check-circle-2.gif'>";
             console.log("RICHTIG");
-            richtig();
+            cookie(1);
          } else if (preis_n + wechselgeld !== kunde) {
             console.log("FALSCH");
-            falsch();
          }
       };
 
-      document.getElementById("reload").onclick = function cookie() {
-         document.cookie = "username=John Smith; SameSite=None; Secure";
+      //Statistik Stuff
+      function cookie(richtig_c) {
+         var cookie = document.cookie;
+         console.log("Cookie = " + cookie);
+         document.cookie =
+            richtig_c +
+            "; SameSite=None; Secure; expires=Fr, 01 Apr 2022 00:00:00 UTC";
          window.location.reload(false);
-      };
+      }
 
-      function cookieshow() {
+      function cs() {
          console.log(document.cookie);
       }
 
-      var richtig_c = 0;
-
-      function richtig() {
-         console.log("richtig-function");
-         richtig_c = richtig_c + 1;
-         console.log(richtig_c);
+      document.getElementById("stat_del").onclick = function reset() {
+         document.cookie =
+            "username=John Smith; SameSite=None; Secure; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+      };
+      /*function print(text) {
+         console.log(text);
+         success(text);
       }
-      function falsch(falsch_c) {
-         console.log("richtig-function");
-      }
+      function success(text) {
+         console.log("Success" + text);
+      }*/
    </script>
 </html>
