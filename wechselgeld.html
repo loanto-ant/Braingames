@@ -55,9 +55,9 @@
                <h2>Statistik</h2>
                <button id="stat_start">Statistik starten</button>
                <button id="stat_del">Statistik zurücksetzen</button>
-               <p id="richtig">Richtig: 5 [50%]</p>
-               <p id="falsch">Falsch: 5 [50%]</p>
-               <p id="gesamt">Gesamt: 10</p>
+               <p id="richtig"></p>
+               <p id="falsch"></p>
+               <p id="gesamt"></p>
                <span id="bar"></span>
             </div>
          </div>
@@ -174,13 +174,21 @@
 
       //Statistik Stuff
       function cookie(richtig_c) {
-         var cookie = document.cookie;
+         var cookie = parseInt(document.cookie);
+         if (Number.isNaN(cookie) == true) {
+            cookie = 0;
+         }
+         cookiesum = cookie + richtig_c;
          console.log("Cookie = " + cookie);
+         console.log("Cookiesum = " + cookiesum);
          document.cookie =
-            richtig_c +
+            cookiesum +
             "; SameSite=None; Secure; expires=Fr, 01 Apr 2022 00:00:00 UTC";
-         window.location.reload(false);
+         document.getElementById("richtig").innerHTML = "Richtig: " + cookiesum;
       }
+
+      document.getElementById("richtig").innerHTML =
+         "Richtig: " + document.cookie;
 
       function cs() {
          console.log(document.cookie);
@@ -188,14 +196,15 @@
 
       document.getElementById("stat_del").onclick = function reset() {
          document.cookie =
-            "username=John Smith; SameSite=None; Secure; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            "; SameSite=None; Secure; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+         document.getElementById("richtig").innerHTML = "Richtig: ";
+         document.getElementById("falsch").innerHTML = "Falsch: ";
+         document.getElementById("gesamt").innerHTML = "Gesamt: ";
       };
-      /*function print(text) {
-         console.log(text);
-         success(text);
-      }
-      function success(text) {
-         console.log("Success" + text);
-      }*/
+
+      //reload
+      document.getElementById("reload").onclick = function reload() {
+         window.location.reload(false);
+      };
    </script>
 </html>
