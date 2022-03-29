@@ -22,7 +22,9 @@ body {
       background-color: var(--farbe3);
    }
 }
-
+h1 a {
+   opacity: 0;
+}
 header {
    background-color: var(--farbe3);
    display: flex;
