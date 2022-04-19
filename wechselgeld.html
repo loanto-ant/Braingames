@@ -53,7 +53,6 @@
          <div id="rechts">
             <div id="spiele">
                <h2>Statistik</h2>
-               <button id="stat_start">Statistik starten</button>
                <button id="stat_del">Statistik zurücksetzen</button>
                <p id="richtig"></p>
                <p id="falsch"></p>
@@ -174,7 +173,8 @@
 
       //Statistik Stuff
       function cookie(richtig_c) {
-         var cookie = parseInt(document.cookie);
+         var cookie = document.cookie.substr(8);
+         cookie = parseInt(document.cookie);
          if (Number.isNaN(cookie) == true) {
             cookie = 0;
          }
@@ -182,20 +182,23 @@
          console.log("Cookie = " + cookie);
          console.log("Cookiesum = " + cookiesum);
          document.cookie =
+            "richtig=" +
             cookiesum +
-            "; SameSite=None; Secure; expires=Fr, 01 Apr 2022 00:00:00 UTC";
+            "; SameSite=None; Secure; expires=So, 01 Apr 2023 00:00:00 UTC";
          document.getElementById("richtig").innerHTML = "Richtig: " + cookiesum;
       }
 
       document.getElementById("richtig").innerHTML =
-         "Richtig: " + document.cookie;
+         "Richtig: " + document.cookie.substr(8);
 
       function cs() {
          console.log(document.cookie);
       }
 
       document.getElementById("stat_del").onclick = function reset() {
+         var cookie = document.cookie;
          document.cookie =
+            cookie +
             "; SameSite=None; Secure; expires=Thu, 01 Jan 1970 00:00:00 UTC";
          document.getElementById("richtig").innerHTML = "Richtig: ";
          document.getElementById("falsch").innerHTML = "Falsch: ";
